@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  rancher:
+    image: rancher/rancher
+    container_name: rancher
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /data/rancher/data:/var/lib/rancher
+      - /data/rancher/log:/var/log
+    networks:
+      - build_env_net
+
+
+networks:
+  build_env_net:
+    external: true
+

@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    container_name: gitlab
+    hostname: 'gitlab'
+    environment:
+      TZ: 'Asia/Shanghai'
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://10.20.1.179'
+        gitlab_rails['time_zone'] = 'Asia/Shanghai'
+    ports:
+      - 80:80
+      - 443:443
+      - "2222:22"
+    volumes:
+      - /data/gitlab/logs:/var/log/gitlab
+      - /data/gitlab/data:/var/opt/gitlab
+      - ./conf:/etc/gitlab
+    networks:
+      - build_env_net
+
+
+networks:
+  build_env_net:
+    external: true
