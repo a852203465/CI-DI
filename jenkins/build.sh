@@ -1,7 +1,6 @@
 #!/bin/bash
 
-docker build -t 192.168.224.132:9001/system/jenkins:1.0.0 .
-# docker push 192.168.224.132:9001/system/jenkins:1.0.0
+docker build -t registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.1.0 .
 
 
 
