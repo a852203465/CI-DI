@@ -1,6 +1,8 @@
 FROM easysoft/zentao:latest
 
-MAINTAINER Rong.Jia Rong.Jia@xdcplus.com
+MAINTAINER Rong.Jia 852203465@qq.com
+
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
